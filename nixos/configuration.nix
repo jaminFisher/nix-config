@@ -55,7 +55,7 @@
   # FIXME: Add the rest of your current configuration
 
   # Hostname
-  networking.hostName = "x220-nix";
+  networking.hostName = "x220";
   networking.networkmanager.enable = true;
   
   # Bootloader
