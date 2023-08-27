@@ -47,14 +47,11 @@
     pkgs.zsh
     pkgs.htop
     pkgs.micro
-    pkgs.vscode
-    pkgs.alacritty
     pkgs.gitui
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -94,16 +91,6 @@
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     EDITOR = "micro";
-  };
-
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      font.normal = {
-        family = "FiraCode Nerd Font";
-        style = "Regular";          
-      };
-    };
   };
 
   programs.zsh.enable = true;

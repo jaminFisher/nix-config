@@ -34,9 +34,13 @@
       # FIXME replace with your username@hostname
       "jaminfisher@x220" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        # > Our main home-manager configuration file <
+        extraSpecialArgs = { inherit inputs outputs; }; 
         modules = [ ./home-manager/x220.nix ];
+      };
+      "jaminfisher@wsl" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = { inherit inputs outputs; }; 
+        modules = [ ./home-manager/wsl.nix ];
       };
     };
   };
