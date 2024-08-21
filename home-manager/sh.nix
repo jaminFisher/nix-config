@@ -18,16 +18,16 @@ in
       character = {
         disabled = true;
       };
-      gitBranch = {
+      git_branch = {
         symbol = " ";
       };
-      gitStatus = {
+      git_status = {
         ahead = "⇡$count";
         diverged = "⇕⇡$aheadCount⇣$behindCount";
         behind = "⇣$count";
         windowsStarship = "/mnt/c/Program Files/starship/bin/starship.exe";
       };
-      gitMetrics = {
+      git_metrics = {
         addedStyle = "bold blue";
         format = "[+$added]($addedStyle)/[-$deleted]($deletedStyle) ";
       };
