@@ -87,7 +87,7 @@
 
   services.kmscon = {
     enable = true;
-    fonts = [{ name = "FiraCode"; package = (pkgs.nerdfonts.override { fonts = [ "FiraCode" ];})}];
+    fonts = [(pkgs.nerdfonts.override { fonts = [ "FiraCode" ];})];
   };
 
   # List packages installed in system profile.
