@@ -25,14 +25,14 @@ in
         symbol = " ";
       };
       gitStatus = {
-        ahead = '⇡${count}';
-        diverged = '⇕⇡${aheadCount}⇣${behindCount}';
-        behind = '⇣${count}';
-        windowsStarship = '/mnt/c/Program Files/starship/bin/starship.exe';
+        ahead = "⇡${count}";
+        diverged = "⇕⇡${aheadCount}⇣${behindCount}";
+        behind = "⇣${count}";
+        windowsStarship = "/mnt/c/Program Files/starship/bin/starship.exe";
       };
       gitMetrics = {
-        addedStyle = 'bold blue';
-        format = '[+$added]($addedStyle)/[-$deleted]($deletedStyle) ';
+        addedStyle = "bold blue";
+        format = "[+$added]($addedStyle)/[-$deleted]($deletedStyle) ";
       };
       memory_usage = {
         symbol = " ";
@@ -50,17 +50,17 @@ in
         };
       };
       shell = {
-        fish_indicator = '';
-        powershell_indicator = '_';
-        zsh_indicator = 'z_';
-        bash_indicator = '#!';
-        cmd_indicator = '';
-        style = 'cyan bold';
+        fish_indicator = "";
+        powershell_indicator = "_";
+        zsh_indicator = "z_";
+        bash_indicator = "#!";
+        cmd_indicator = "";
+        style = "cyan bold";
         disabled = false;
       };
       dotnet = {
-        format = '=> [$symbol($tfm){($version)}]($style)';
-        symbol = '󰪮 ';
+        format = "=> [$symbol($tfm){($version)}]($style)";
+        symbol = "󰪮 ";
         disabled = false;
       };
       azure = {
@@ -71,30 +71,30 @@ in
       };
       battery = {
         format = "[$symbol]($style)";
-        full_symbol = '󰁹';
-        charging_symbol = '󱊦';
-        discharging_symbol = '󱟞';
+        full_symbol = "󰁹";
+        charging_symbol = "󱊦";
+        discharging_symbol = "󱟞";
         disabled = false;
         display = [
           {
             threshold = 10;
-            style = 'bold red';
-            discharging_symbol = '󱃍';
+            style = "bold red";
+            discharging_symbol = "󱃍";
           }
           {
             threshold = 30;
-            style = 'bold yellow';
-            discharging_symbol = '󱟟';
+            style = "bold yellow";
+            discharging_symbol = "󱟟";
           }
           {
             threshold = 98;
-            style = 'green';
+            style = "green";
           }
         ];
       };
       command_duration = {
         min_time = 500
-        format = 'took [$duration](white)'
+        format = "took [$duration](white)"
       };
     };
   };
