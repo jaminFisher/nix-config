@@ -18,9 +18,6 @@ in
       character = {
         disabled = true;
       };
-      directory = {
-        readOnly = " ";
-      };
       gitBranch = {
         symbol = " ";
       };
@@ -92,7 +89,7 @@ in
           }
         ];
       };
-      command_duration = {
+      cmd_duration = {
         min_time = 500;
         format = "took [$duration](white)";
       };
