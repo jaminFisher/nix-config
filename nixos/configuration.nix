@@ -85,6 +85,11 @@
   # Configure console keymap
   console.keyMap = "uk";
 
+  services.kmscon = {
+    enable = true;
+    fonts = [{ name = "FiraCode"; package = (pkgs.nerdfonts.override { fonts = [ "FiraCode" ];})}];
+  };
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [];
 
