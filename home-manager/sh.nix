@@ -14,7 +14,7 @@ in
     enableZshIntegration = true;
     settings = {
       command_timeout = 10000;
-      addNewline = false;
+      add_newline = false;
       character = {
         disabled = true;
       };
