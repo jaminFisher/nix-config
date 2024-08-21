@@ -94,7 +94,7 @@ in
       };
       command_duration = {
         min_time = 500;
-        format = "took [$duration](white)"
+        format = "took [$duration](white)";
       };
     };
   };
