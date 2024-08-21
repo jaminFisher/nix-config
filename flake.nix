@@ -4,7 +4,6 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-    inputs.sops-nix.url = "github:Mic92/sops-nix";
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
