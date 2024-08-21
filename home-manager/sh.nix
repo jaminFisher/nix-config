@@ -93,7 +93,7 @@ in
         ];
       };
       command_duration = {
-        min_time = 500
+        min_time = 500;
         format = "took [$duration](white)"
       };
     };
@@ -102,7 +102,7 @@ in
   programs.zoxide = {
     enableBashIntegration= true;
     enableZshIntegration = true;
-  }
+  };
 
   programs.zsh = {
     enable = true;
