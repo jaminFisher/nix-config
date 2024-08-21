@@ -40,8 +40,6 @@
     userEmail = "jaminFisher@gmail.com";
   };
 
-  programs.git-credential-oauth.enable = true;
-
   # Enable home-manager and git
   programs.home-manager.enable = true;
 
