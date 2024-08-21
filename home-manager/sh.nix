@@ -13,7 +13,7 @@ in
     enableBashIntegration = true;
     enableZshIntegration = true;
     settings = {
-      command_timeout = 10000
+      command_timeout = 10000;
       addNewline = false;
       character = {
         disabled = true;
