@@ -25,9 +25,9 @@ in
         symbol = " ";
       };
       gitStatus = {
-        ahead = "⇡${count}";
-        diverged = "⇕⇡${aheadCount}⇣${behindCount}";
-        behind = "⇣${count}";
+        ahead = "⇡$count";
+        diverged = "⇕⇡$aheadCount⇣$behindCount";
+        behind = "⇣$count";
         windowsStarship = "/mnt/c/Program Files/starship/bin/starship.exe";
       };
       gitMetrics = {
