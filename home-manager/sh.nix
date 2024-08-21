@@ -25,10 +25,10 @@ in
         ahead = "⇡$count";
         diverged = "⇕⇡$aheadCount⇣$behindCount";
         behind = "⇣$count";
-        windowsStarship = "/mnt/c/Program Files/starship/bin/starship.exe";
+        windows_starship = "/mnt/c/Program Files/starship/bin/starship.exe";
       };
       git_metrics = {
-        addedStyle = "bold blue";
+        added_style = "bold blue";
         format = "[+$added]($addedStyle)/[-$deleted]($deletedStyle) ";
       };
       memory_usage = {
