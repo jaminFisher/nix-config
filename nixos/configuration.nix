@@ -87,7 +87,7 @@
   console.keyMap = "uk";
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [ sops ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
