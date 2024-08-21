@@ -85,6 +85,10 @@
   # Configure console keymap
   console.keyMap = "uk";
 
+  services.kmscon = {
+    enable = true;
+  };
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [];
 

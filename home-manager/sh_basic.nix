@@ -114,7 +114,7 @@ in
   };
 
   home.packages = with pkgs; [
-    bottom fd fzf broot gitui (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    helix bottom fd fzf broot gitui (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
 
 }
