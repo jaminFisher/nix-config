@@ -58,6 +58,7 @@
   # Hostname
   networking.hostName = "x220";
   networking.networkmanager.enable = true;
+  services.tailscale.enable = true;
   
   # Bootloader
   boot.loader.grub = {
@@ -84,10 +85,6 @@
 
   # Configure console keymap
   console.keyMap = "uk";
-
-  services.kmscon = {
-    enable = true;
-  };
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [];
