@@ -8,7 +8,6 @@ let
   };
 in
 {
-
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
@@ -100,6 +99,11 @@ in
     };
   };
 
+  programs.zoxide = {
+    enableBashIntegration= true;
+    enableZshIntegration = true;
+  }
+
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -121,7 +125,7 @@ in
   };
 
   home.packages = with pkgs; [
-    bottom fd fzf broot
+    bottom fd fzf broot gitui (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
 
 }

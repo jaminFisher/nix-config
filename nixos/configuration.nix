@@ -4,6 +4,7 @@
 { inputs, lib, config, pkgs, ... }: {
   # You can import other NixOS modules here
   imports = [
+    inputs.home-manager.nixosModules.home-manager
     # If you want to use modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
@@ -65,22 +66,6 @@
     useOSProber = true;
   };
 
-  # Desktop  
-  services.xserver = {
-    enable = true;
-    displayManager.sddm.enable = true;
-    #displayManager.gdm.enable = true;
-    layout = "gb";
-    xkbVariant = "";
-  };
-
-  programs.hyprland.enable = true;
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
-
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   
   time.timeZone = "Europe/London";
@@ -100,33 +85,18 @@
   # Configure console keymap
   console.keyMap = "uk";
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    #jack.enable = true;
-
-  };  
-
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
-    waybar
-    dunst
-    libnotify
-    swww
-    rofi-wayland
-    brave
-    networkmanagerapplet
-    (nerdfonts.override {fonts = [ "FiraCode" ];})
-  ];
+  environment.systemPackages = with pkgs; [];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      jaminfisher = import ../home-manager/jaminfisher.nix;
+    };
+  };
 
   users.users = {
-    # FIXME: Replace with your username
     jaminfisher = {
       isNormalUser = true;
       description = "jaminfisher";
