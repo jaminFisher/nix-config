@@ -39,6 +39,11 @@
         system = "x86_64-linux";
         
         modules = [
+          nixos-wsl.nixosModules.default
+          {
+            wsl.enable = true;
+            wsl.defaultUser = "jaminfisher";
+          }
           ./system/wsl.nix 
           ];
         

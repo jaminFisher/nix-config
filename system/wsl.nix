@@ -7,10 +7,6 @@
     ./generic/configuration.nix
   ];
     environment.systemPackages = with pkgs; [ nh ];
-    nixos-wsl.nixosModules.default = 
-          {
-            wsl.enable = true;
-            wsl.defaultUser = "jaminfisher";
-          };
+    
     
 }
