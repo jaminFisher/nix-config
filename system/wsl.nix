@@ -7,11 +7,11 @@
     ./generic/configuration.nix
   ];
     environment.systemPackages = with pkgs; [ nh ];
-
-    nixos-wsl.nixosModules.default = 
+    modules = [nixos-wsl.nixosModules.default
           {
             system.stateVersion = "24.05";
             wsl.enable = true;
             wsl.defaultUser = jaminfisher;
-          }; 
+          }];
+    
 }
