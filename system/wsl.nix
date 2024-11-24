@@ -11,7 +11,7 @@
           {
             system.stateVersion = "24.05";
             wsl.enable = true;
-            wsl.defaultUser = jaminfisher;
+            wsl.defaultUser = "jaminfisher";
           }];
     
 }
