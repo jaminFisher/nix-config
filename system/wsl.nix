@@ -8,7 +8,7 @@
   ];
     environment.systemPackages = with pkgs; [ nh ];
 
-    nixos-wsl.nixosModules.default
+    nixos-wsl.nixosModules.default = 
           {
             system.stateVersion = "24.05";
             wsl.enable = true;
