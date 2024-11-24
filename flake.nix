@@ -63,7 +63,7 @@
           inherit inputs outputs;
         };
       };
-    }
+    };
   };
 };
 }
