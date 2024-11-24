@@ -7,10 +7,6 @@
     inputs.home-nixos-wsl.nixosModules.home-manager
   ];
 
-  nixos-wsl.nixosModules.default = 
-          {
-            system.stateVersion = "24.05";
-            wsl.enable = true;
-          };
+  
     environment.systemPackages = with pkgs; [ nh ];
 }
