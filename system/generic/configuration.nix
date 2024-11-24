@@ -5,6 +5,7 @@
   # You can import other NixOS modules here
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    inputs.sops-nix.nixosModules.sops
     # If you want to use modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
@@ -15,6 +16,11 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
+
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+  
+  sops.age.keyFile = "/home/user/.config/sops/age/keys.txt";
 
   nixpkgs = {
     # You can add overlays here
@@ -54,18 +60,8 @@
   };
 
   # FIXME: Add the rest of your current configuration
-
-  # Hostname
-  networking.hostName = "x220";
-  networking.networkmanager.enable = true;
-  services.tailscale.enable = true;
   
-  # Bootloader
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/sda";
-    useOSProber = true;
-  };
+
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   
