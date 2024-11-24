@@ -25,14 +25,10 @@
         modules = [ ./nixos/configuration.nix ];
       };
        nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         system = "x86_64-linux";
-        modules = [
-          nixos-wsl.nixosModules.default
-          {
-            system.stateVersion = "24.05";
-            wsl.enable = true;
-          }
-        ];
+        modules = [ ./nixos/wsl/configuration.nix ];
+        
     };
   };
 };
