@@ -7,9 +7,10 @@
     #inputs.sops-nix.url = "github:Mic92/sops-nix";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
+
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
       url = "github:mic92/sops-nix";
@@ -25,7 +26,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, systems ,nixos-wsl,  ... 
-  }@ inputs:{
+  }@inputs:{
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
