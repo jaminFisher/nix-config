@@ -43,15 +43,6 @@
           ];
         
     };
-    homeConfigurations = {
-      "jaminFisher@nix_wsl" = lib.homeManagerConfiguration {
-        modules = [ ./home/jaminfisher.nix ];
-        pkgs = pkgsFor.x86_64-linux;
-        extraSpecialArgs = {
-          inherit inputs ;
-        };
-      };
-    };
   };
 };
 }
