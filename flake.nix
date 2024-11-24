@@ -35,7 +35,7 @@
         modules = [ ./system/x220/default.nix ];
       };
        nix_wsl = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; }; # Pass flake inputs to our config
+        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         system = "x86_64-linux";
         
         modules = [
@@ -48,7 +48,7 @@
         modules = [ ./home/jaminfisher.nix ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
-          inherit inputs outputs;
+          inherit inputs ;
         };
       };
     };
