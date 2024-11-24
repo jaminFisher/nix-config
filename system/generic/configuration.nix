@@ -14,7 +14,7 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration.nix
+    #./hardware-configuration.nix
   ];
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
