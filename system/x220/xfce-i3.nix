@@ -1,8 +1,10 @@
 { ... }:
 {
   services.xserver = {
-    layout = "gb";
-    xkbVariant = "";
+    xkb = {
+      layout = "gb";
+      variant = "";
+    };
     enable = true;
     desktopManager = {
       xterm.enable = false;
