@@ -4,6 +4,7 @@
     ./starship.nix
     ./git.nix
     ./helix.nix
+    ./zsh.nix
   ];
   home.packages = with pkgs; [
 
