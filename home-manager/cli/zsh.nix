@@ -4,7 +4,6 @@ let
   # My shell aliases
   myAliases = {
     fd = "fd -Lu";
-    br = "broot";
   };
 in
 {
@@ -12,6 +11,7 @@ in
     enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
+
     shellAliases = myAliases;
     oh-my-zsh = {
       enable = true;
