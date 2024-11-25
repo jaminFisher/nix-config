@@ -8,11 +8,14 @@
   ];
   home.packages = with pkgs; [
 
-    bottom 
-    fd 
-    broot 
-    gitui 
+    bottom
+    fd
+    broot
+    gitui
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    zoxide
+    rbw
+    pinentry
 
     nixd # Nix LSP
     alejandra # Nix formatter

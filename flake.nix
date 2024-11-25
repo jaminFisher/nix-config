@@ -7,7 +7,6 @@
     #inputs.sops-nix.url = "github:Mic92/sops-nix";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
-
     home-manager = {
       url = "github:nix-community/home-manager";
       #inputs.nixpkgs.follows = "nixpkgs";
@@ -25,30 +24,43 @@
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, systems ,nixos-wsl,  ... 
-  }@inputs:{
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
-    nixosConfigurations = {
-      x220 = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        # > Our main nixos configuration file <
-        modules = [ ./system/x220/default.nix ];
-      };
-       nix_wsl = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        system = "x86_64-linux";
-        
-        modules = [
-          nixos-wsl.nixosModules.default
-          {
-            wsl.enable = true;
-            wsl.defaultUser = "jaminfisher";
-          }
-          ./system/wsl.nix 
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      systems,
+      nixos-wsl,
+      ...
+    }@inputs:
+    {
+      formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      # NixOS configuration entrypoint
+      # Available through 'nixos-rebuild --flake .#your-hostname'
+      nixosConfigurations = {
+        x220 = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          }; # Pass flake inputs to our config
+          # > Our main nixos configuration file <
+          modules = [ ./system/x220/default.nix ];
+        };
+        nix-wsl = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          }; # Pass flake inputs to our config
+          system = "x86_64-linux";
+
+          modules = [
+            nixos-wsl.nixosModules.default
+            {
+              wsl.enable = true;
+              wsl.defaultUser = "jaminfisher";
+            }
+            ./system/wsl.nix
           ];
-        
+
+        };
+      };
     };
-  };
-};
 }

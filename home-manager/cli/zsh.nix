@@ -1,12 +1,13 @@
-{...}:
-  let
+{ ... }:
+let
 
   # My shell aliases
   myAliases = {
     fd = "fd -Lu";
     br = "broot";
   };
-in{
+in
+{
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -14,7 +15,12 @@ in{
     shellAliases = myAliases;
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "the fuck" "zoxide"];
+      plugins = [
+        "git"
+        "zoxide"
+        "starship"
+        "rbw"
+      ];
     };
   };
 }

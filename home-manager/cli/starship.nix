@@ -47,6 +47,9 @@
         style = "cyan bold";
         disabled = false;
       };
+      nix_shell = {
+        disabled = false;
+      };
       dotnet = {
         format = "=> [$symbol($tfm){($version)}]($style)";
         symbol = ".NET";

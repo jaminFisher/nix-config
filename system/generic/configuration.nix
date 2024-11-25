@@ -1,7 +1,15 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, lib, config, pkgs, outputs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  outputs,
+  ...
+}:
+{
   # You can import other NixOS modules here
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -19,7 +27,7 @@
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
-  
+
   sops.age.keyFile = "/home/user/.config/sops/age/keys.txt";
 
   nixpkgs = {
@@ -60,11 +68,9 @@
   };
 
   # FIXME: Add the rest of your current configuration
-  
-
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
-  
+
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
   i18n.extraLocaleSettings = {
@@ -83,25 +89,35 @@
   console.keyMap = "uk";
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [ sops nixd nh];
+  environment.systemPackages = with pkgs; [
+    sops
+    nixd
+    nh
+  ];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = {
+      inherit inputs outputs;
+    };
     users = {
       # Import your home-manager configuration
       jaminfisher = import ../../home-manager/jaminfisher.nix;
     };
   };
-
+  programs.zsh.enable = true;
   users.users = {
     jaminfisher = {
+      shell = pkgs.zsh;
       isNormalUser = true;
       description = "jaminfisher";
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
       packages = with pkgs; [
         # Add user apps if required.
       ];
@@ -112,10 +128,11 @@
   # Feel free to remove if you don't need it.
   services.openssh = {
     enable = true;
-    # Forbid root login through SSH.
-    permitRootLogin = "no";
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
     # Use keys only. Remove if you want to SSH using password (not recommended)
-    passwordAuthentication = false;
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
