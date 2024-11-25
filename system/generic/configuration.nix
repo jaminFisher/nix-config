@@ -53,11 +53,11 @@
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    #registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+    #nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
     settings = {
       # Enable flakes and new 'nix' command
@@ -126,14 +126,14 @@
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
-    };
-    # Use keys only. Remove if you want to SSH using password (not recommended)
-  };
+  #services.openssh = {
+  #enable = true;
+  #settings = {
+  #PermitRootLogin = "no";
+  #PasswordAuthentication = false;
+  #};
+  # Use keys only. Remove if you want to SSH using password (not recommended)
+  #};
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
