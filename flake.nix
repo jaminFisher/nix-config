@@ -43,7 +43,7 @@
             inherit inputs;
           }; # Pass flake inputs to our config
           # > Our main nixos configuration file <
-          modules = [ ./system/x220/default.nix ];
+          modules = [ ./system/x220 ];
         };
         nix-wsl = nixpkgs.lib.nixosSystem {
           specialArgs = {
