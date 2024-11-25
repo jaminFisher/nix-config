@@ -2,8 +2,10 @@
 {
   programs.helix = {
     enable = true;
+
     settings = {
       theme = "autumn_night_transparent";
+      editor.true-color = true;
       editor.cursor-shape = {
         normal = "block";
         insert = "bar";

@@ -5,6 +5,7 @@
     ./git.nix
     ./helix.nix
     ./zsh.nix
+    ./broot.nix
   ];
   home.packages = with pkgs; [
 

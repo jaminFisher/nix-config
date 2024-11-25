@@ -1,18 +1,16 @@
+{ pkgs, inputs, ... }:
 {
-  pkgs,
-  inputs,
-  ...
-}: {
   imports = [
+    ./generic/configuration.nix
     ./hardware-configuration.nix
   ];
 
-    # Hostname
+  # Hostname
   networking.hostName = "x220";
   networking.networkmanager.enable = true;
   services.tailscale.enable = true;
 
-    # Bootloader
+  # Bootloader
   boot.loader.grub = {
     enable = true;
     device = "/dev/sda";
