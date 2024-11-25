@@ -15,5 +15,5 @@
     windowManager.i3.enable = true;
   };
 
-  service.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
 }
