@@ -2,7 +2,7 @@
 {
   imports = [
     ../generic/configuration.nix
-    ./xfce_i3.nix
+    ./xfce-i3.nix
     ./hardware-configuration.nix
   ];
 
