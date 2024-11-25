@@ -1,7 +1,8 @@
 { pkgs, inputs, ... }:
 {
   imports = [
-    ./generic/configuration.nix
+    ../generic/configuration.nix
+    ./xfce_i3.nix
     ./hardware-configuration.nix
   ];
 
