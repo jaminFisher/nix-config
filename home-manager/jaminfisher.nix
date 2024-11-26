@@ -10,7 +10,14 @@
 }:
 {
   # You can import other home-manager modules here
-  imports = [ ./cli/default.nix ];
+  imports =
+    if "$(hostname)" != "x220" then
+      [ ./cli/default.nix ]
+    else
+      [
+        ./cli/default.nix
+        ./i3/default.nix
+      ];
 
   nixpkgs = {
     # Configure your nixpkgs instance
