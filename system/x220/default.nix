@@ -2,7 +2,7 @@
 {
   imports = [
     ../generic/configuration.nix
-    ./i3.nix
+    ./hyprland.nix
     ./hardware-configuration.nix
   ];
 

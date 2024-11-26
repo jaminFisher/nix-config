@@ -9,12 +9,14 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
@@ -31,6 +33,7 @@
       home-manager,
       systems,
       nixos-wsl,
+      hyprland,
       ...
     }@inputs:
     {
