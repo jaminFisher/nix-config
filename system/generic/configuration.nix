@@ -1,10 +1,19 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, lib, config, pkgs, outputs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  outputs,
+  ...
+}:
+{
   # You can import other NixOS modules here
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    inputs.sops-nix.nixosModules.sops
     # If you want to use modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
@@ -13,8 +22,13 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration.nix
+    #./hardware-configuration.nix
   ];
+
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+
+  sops.age.keyFile = "/home/user/.config/sops/age/keys.txt";
 
   nixpkgs = {
     # You can add overlays here
@@ -39,11 +53,11 @@
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    #registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+    #nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
     settings = {
       # Enable flakes and new 'nix' command
@@ -55,20 +69,8 @@
 
   # FIXME: Add the rest of your current configuration
 
-  # Hostname
-  networking.hostName = "x220";
-  networking.networkmanager.enable = true;
-  services.tailscale.enable = true;
-  
-  # Bootloader
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/sda";
-    useOSProber = true;
-  };
-
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
-  
+
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
   i18n.extraLocaleSettings = {
@@ -87,25 +89,35 @@
   console.keyMap = "uk";
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [ sops ];
+  environment.systemPackages = with pkgs; [
+    sops
+    nixd
+    nh
+  ];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = {
+      inherit inputs outputs;
+    };
     users = {
       # Import your home-manager configuration
-      jaminfisher = import ../home-manager/jaminfisher.nix;
+      jaminfisher = import ../../home-manager/jaminfisher.nix;
     };
   };
-
+  programs.zsh.enable = true;
   users.users = {
     jaminfisher = {
+      shell = pkgs.zsh;
       isNormalUser = true;
       description = "jaminfisher";
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
       packages = with pkgs; [
         # Add user apps if required.
       ];
@@ -114,13 +126,14 @@
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
-  services.openssh = {
-    enable = true;
-    # Forbid root login through SSH.
-    permitRootLogin = "no";
-    # Use keys only. Remove if you want to SSH using password (not recommended)
-    passwordAuthentication = false;
-  };
+  #services.openssh = {
+  #enable = true;
+  #settings = {
+  #PermitRootLogin = "no";
+  #PasswordAuthentication = false;
+  #};
+  # Use keys only. Remove if you want to SSH using password (not recommended)
+  #};
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
