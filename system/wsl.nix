@@ -18,6 +18,16 @@
     wget
   ];
 
+  home-manager = {
+    extraSpecialArgs = {
+      inherit inputs outputs;
+    };
+    users = {
+      # Import your home-manager configuration
+      jaminfisher = import ../home-manager/jaminfisher.nix;
+    };
+  };
+
   networking.hostName = "nix-wsl";
   services.tailscale.enable = true;
   programs.nix-ld = {
