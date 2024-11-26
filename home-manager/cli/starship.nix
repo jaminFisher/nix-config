@@ -7,6 +7,11 @@
     settings = {
       command_timeout = 10000;
       add_newline = false;
+      hostname = {
+        ssh_only = false;
+        format = "[$ssh_symbol](bold blue) on [$hostname](bold red) ";
+        disabled = false;
+      };
       character = {
         disabled = true;
       };
