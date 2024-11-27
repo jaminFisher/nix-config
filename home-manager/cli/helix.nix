@@ -2,9 +2,9 @@
 {
   programs.helix = {
     enable = true;
-
+    defaultEditor = true;
     settings = {
-      theme = "autumn_night_transparent";
+      theme = "gruvbox";
       editor.true-color = true;
       editor.cursor-shape = {
         normal = "block";
@@ -19,11 +19,5 @@
         formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
       }
     ];
-    themes = {
-      autumn_night_transparent = {
-        "inherits" = "autumn_night";
-        "ui.background" = { };
-      };
-    };
   };
 }
