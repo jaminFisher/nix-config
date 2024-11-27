@@ -17,6 +17,7 @@
     zoxide
     rbw
     pinentry
+    zellij
 
     nixd # Nix LSP
     alejandra # Nix formatter
