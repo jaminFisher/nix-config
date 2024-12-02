@@ -24,7 +24,7 @@
     };
     users = {
       # Import your home-manager configuration
-      jaminfisher = import ../home-manager/cli;
+      jaminfisher = import [../home-manager/cli ../home-manager/jaminfisher.nix];
     };
   };
 
