@@ -1,6 +1,10 @@
-{ pkgs, inputs, ... }: {
-  imports =
-    [ ../generic/configuration.nix ./xfce-i3.nix ./hardware-configuration.nix ];
+{ pkgs, inputs, ... }:
+{
+  imports = [
+    ../generic/configuration.nix
+    ./i3.nix
+    ./hardware-configuration.nix
+  ];
 
   hardware.enableRedistributableFirmware = true;
   # Hostname
