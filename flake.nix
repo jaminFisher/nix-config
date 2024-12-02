@@ -70,13 +70,12 @@
         };
       };
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+      specialArgs = {
+            inherit inputs;
+          };
+      system = "aarch64-linux";
       modules = [
         ./system/nix-on-droid.nix
-
-        # list of extra modules for Nix-on-Droid system
-        # { nix.registry.nixpkgs.flake = nixpkgs; }
-        # ./path/to/module.nix
-
         # or import source out-of-tree modules like:
         # flake.nixOnDroidModules.module
       ];
@@ -96,8 +95,6 @@
         ];
       };
 
-      # set path to home-manager flake
-      home-manager-path = home-manager.outPath;
     };
     };
 }
