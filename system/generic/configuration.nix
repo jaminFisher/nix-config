@@ -95,15 +95,6 @@
     nh
   ];
 
-  home-manager = {
-    extraSpecialArgs = {
-      inherit inputs outputs;
-    };
-    users = {
-      # Import your home-manager configuration
-      jaminfisher = import ../../home-manager/jaminfisher.nix;
-    };
-  };
   programs.zsh.enable = true;
   users.users = {
     jaminfisher = {

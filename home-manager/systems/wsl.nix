@@ -1,0 +1,7 @@
+{ ... }:
+{
+  imports = [
+    ../jaminfisher.nix
+    ../cli
+  ];
+}

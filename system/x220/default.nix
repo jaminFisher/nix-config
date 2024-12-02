@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  outputs,
+  ...
+}:
 {
   imports = [
     ../generic/configuration.nix
@@ -18,6 +23,16 @@
   networking.networkmanager.wifi.backend = "iwd";
 
   #networking.wireless.userControlled.enable = true;
+
+  home-manager = {
+    extraSpecialArgs = {
+      inherit inputs outputs;
+    };
+    users = {
+      # Import your home-manager configuration
+      jaminfisher = import ../../home-manager/systems/x220.nix;
+    };
+  };
 
   # Bootloader
   boot.loader.grub = {
