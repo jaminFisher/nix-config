@@ -70,10 +70,6 @@
         };
       };
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-      specialArgs = {
-            inherit inputs;
-          };
-      system = "aarch64-linux";
       modules = [
         ./system/nix-on-droid.nix
         # or import source out-of-tree modules like:
