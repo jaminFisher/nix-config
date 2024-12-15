@@ -30,6 +30,7 @@
 
   networking.hostName = "nix-wsl";
   services.tailscale.enable = true;
+  services.vaultwarden.enable = true;
   programs.nix-ld = {
     enable = true;
     package = pkgs.nix-ld-rs; # only for NixOS 24.05
