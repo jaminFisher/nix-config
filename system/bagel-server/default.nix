@@ -25,7 +25,7 @@
   # Bootloader
   boot.loader.grub = {
     enable = true;
-    device = "/dev/disk/by-uuid/F065-F3BB";
+    device = "/dev/disk/by-uuid/8068a504-f514-4ea9-ac5b-45fbc3600d98";
     useOSProber = true;
   };
 }
