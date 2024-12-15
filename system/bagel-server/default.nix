@@ -18,7 +18,7 @@
     };
     users = {
       # Import your home-manager configuration
-      jaminfisher = import ../home-manager/system/wsl.nix;
+      jaminfisher = import ../../home-manager/system/wsl.nix;
     };
   };
 
