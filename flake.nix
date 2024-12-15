@@ -25,14 +25,7 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      systems,
-      nixos-wsl,
-      ...
-    }@inputs:
+    { nixpkgs, nixos-wsl, ... }@inputs:
     {
       formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       # NixOS configuration entrypoint
@@ -45,6 +38,14 @@
           }; # Pass flake inputs to our config
           # > Our main nixos configuration file <
           modules = [ ./system/x220 ];
+        };
+        bagel-server = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          }; # Pass flake inputs to our config
+          # > Our main nixos configuration file <
+          modules = [ ./system/bagel-server ];
         };
         nix-wsl = nixpkgs.lib.nixosSystem {
           specialArgs = {
