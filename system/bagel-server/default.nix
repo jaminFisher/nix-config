@@ -22,4 +22,10 @@
     };
   };
 
+  # Bootloader
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/disk/by-uuid/F065-F3BB";
+    useOSProber = true;
+  };
 }
