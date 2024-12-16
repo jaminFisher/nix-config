@@ -22,10 +22,8 @@
     };
   };
 
-  # Bootloader
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/nvme0n1p1";
-    useOSProber = true;
-  };
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
 }
