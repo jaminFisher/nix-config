@@ -39,6 +39,11 @@
     ];
   };
 
+  fileSystems."/mnt/ExPi" = {
+    device = "/dev/disk/by-uuid/9EAD-1A9C";
+    fsType = "exfat";
+  };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
