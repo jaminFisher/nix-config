@@ -11,6 +11,7 @@
   # networking.wireless.enable = true;
   networking.networkmanager.enable = true;
   services.tailscale.enable = true;
+  services.vaultwarden.enable = true;
 
   home-manager = {
     extraSpecialArgs = {
