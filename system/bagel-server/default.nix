@@ -8,6 +8,7 @@
   imports = [
     ../generic/configuration.nix
     ./hardware-configuration.nix
+    ./samba.nix
   ];
 
   hardware.enableRedistributableFirmware = true;
