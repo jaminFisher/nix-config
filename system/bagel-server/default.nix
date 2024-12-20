@@ -40,8 +40,10 @@
       intel-media-sdk # QSV up to 11th gen
     ];
   };
-  services.jellyfin.enable = true;
-
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
   home-manager = {
     extraSpecialArgs = {
       inherit inputs outputs;
