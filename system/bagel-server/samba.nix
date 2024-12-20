@@ -26,6 +26,7 @@
         "guest ok" = "yes";
         "create mask" = "0666";
         "directory mask" = "0755";
+        "valid users" = "jaminfisher";
       };
       # "private" = {
       #   "path" = "/mnt/Shares/Private";
