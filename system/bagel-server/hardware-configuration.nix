@@ -41,6 +41,7 @@
   fileSystems."/mnt/ExPi" = {
     device = "/dev/disk/by-uuid/9EAD-1A9C";
     fsType = "exfat";
+    options = [ "umask=0000" ];
   };
 
   swapDevices = [ ];
