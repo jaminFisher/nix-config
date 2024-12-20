@@ -3,8 +3,11 @@
 
 {
   inputs,
+  lib,
+  config,
   pkgs,
   outputs,
+  nixos-wsl,
   ...
 }:
 {

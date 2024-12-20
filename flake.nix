@@ -25,7 +25,14 @@
   };
 
   outputs =
-    { nixpkgs, nixos-wsl, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      systems,
+      nixos-wsl,
+      ...
+    }@inputs:
     {
       formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       # NixOS configuration entrypoint
