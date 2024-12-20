@@ -23,8 +23,8 @@
         "browseable" = "yes";
         "read only" = "no";
         "guest ok" = "yes";
-        "create mask" = "0644";
-        "directory mask" = "0755";
+        "create mask" = "0666";
+        "directory mask" = "0666";
       };
       # "private" = {
       #   "path" = "/mnt/Shares/Private";
