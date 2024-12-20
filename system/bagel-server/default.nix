@@ -16,7 +16,10 @@
   networking.hostName = "bagel-server";
   # networking.wireless.enable = true;
   networking.networkmanager.enable = true;
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "server";
+  };
   services.vaultwarden.enable = true;
 
   # Jellyfin
