@@ -13,7 +13,7 @@
         #"use sendfile" = "yes";
         #"max protocol" = "smb2";
         # note: localhost is the ipv6 localhost ::1
-        "hosts allow" = "192.168.0. 127.0.0.1 localhost 100.97.53.166 100.120.168.142";
+        "hosts allow" = "192.168.0. 127.0.0.1 localhost 100.97.53.166 100.97.53.166";
         "hosts deny" = "0.0.0.0/0";
         "guest account" = "nobody";
         "map to guest" = "bad user";
@@ -21,10 +21,10 @@
       "ExPi" = {
         "path" = "/mnt/ExPi";
         "browseable" = "yes";
-        "writeable" = "yes";
         "read only" = "no";
         "guest ok" = "yes";
-        "valid users" = "jaminfisher";
+        "create mask" = "0755";
+        "directory mask" = "0755";
       };
       # "private" = {
       #   "path" = "/mnt/Shares/Private";
