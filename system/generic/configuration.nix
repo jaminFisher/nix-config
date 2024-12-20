@@ -88,6 +88,7 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    gnupg
     sops
     nixd
     nh
@@ -117,11 +118,12 @@
         "wheel"
       ];
       packages = with pkgs; [
+        gnupg
         # Add user apps if required.
       ];
     };
   };
-
+  security.sudo.enable = true;
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   #services.openssh = {
