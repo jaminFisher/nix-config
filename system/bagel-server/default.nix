@@ -16,14 +16,24 @@
   networking.hostName = "bagel-server";
   # networking.wireless.enable = true;
   networking.networkmanager.enable = true;
+
+  # Tailscale
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "server";
   };
+
+  # Immich
+  services.immich.enable = true;
+  users.users.immich.extraGroups = [
+    "video"
+    "render"
+  ];
+
+  # Vaultwarden
   services.vaultwarden.enable = true;
 
   # Jellyfin
-
   environment.systemPackages = [
     pkgs.jellyfin
     pkgs.jellyfin-web
