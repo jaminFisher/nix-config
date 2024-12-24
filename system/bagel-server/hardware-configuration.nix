@@ -38,6 +38,11 @@
     ];
   };
 
+  fileSystems."/mnt/data" = {
+    device = "/dev/sda1";
+    fsType = "ext4";
+  };
+
   fileSystems."/mnt/ExPi" = {
     device = "/dev/disk/by-uuid/9EAD-1A9C";
     fsType = "exfat";
