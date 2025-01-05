@@ -6,6 +6,7 @@
     ./helix.nix
     ./zsh.nix
     ./broot.nix
+    ./gnupg.nix
   ];
   home.packages = with pkgs; [
 
@@ -16,7 +17,7 @@
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     zoxide
     rbw
-    pinentry
+    pinentry-all
     zellij
 
     nixd # Nix LSP
