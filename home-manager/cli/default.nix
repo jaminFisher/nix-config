@@ -1,6 +1,13 @@
 { pkgs, ... }: {
-  imports =
-    [ ./starship.nix ./git.nix ./helix.nix ./zsh.nix ./broot.nix ./rbw.nix ];
+  imports = [
+    ./starship.nix
+    ./git.nix
+    ./helix.nix
+    ./zsh.nix
+    ./broot.nix
+    ./rbw.nix
+    ./zellij.nix
+  ];
   home.packages = with pkgs; [
     bottom
     fd
@@ -9,7 +16,6 @@
     nerd-fonts.fira-code
     zoxide
     pinentry
-
     nixd # Nix LSP
     alejandra # Nix formatter
     nixfmt-rfc-style

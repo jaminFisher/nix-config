@@ -15,7 +15,12 @@
 
   #networking.wireless.userControlled.enable = true;
 
-  environment.systemPackages = with pkgs; [ firefox ghostty ];
+  environment.systemPackages = with pkgs; [
+    brave
+    firefox
+    ghostty
+    gnomeExtensions.pop-shell
+  ];
   # Bootloader
   boot.loader.grub = {
     enable = true;
