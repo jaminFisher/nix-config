@@ -1,5 +1,6 @@
 { pkgs, ... }: {
-  imports = [ ./starship.nix ./git.nix ./helix.nix ./zsh.nix ./broot.nix ];
+  imports =
+    [ ./starship.nix ./git.nix ./helix.nix ./zsh.nix ./broot.nix ./rbw.nix ];
   home.packages = with pkgs; [
     bottom
     fd
@@ -7,7 +8,6 @@
     gitui
     nerd-fonts.fira-code
     zoxide
-    rbw
     pinentry
 
     nixd # Nix LSP
