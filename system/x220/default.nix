@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }: {
   imports =
-    [ ../generic/configuration.nix ./xfce-i3.nix ./hardware-configuration.nix ];
+    [ ../generic/configuration.nix ./gnome.nix ./hardware-configuration.nix ];
 
   hardware.enableRedistributableFirmware = true;
   # Hostname
@@ -15,6 +15,7 @@
 
   #networking.wireless.userControlled.enable = true;
 
+  environment.systemPackages = with pkgs; [ firefox ghostty ];
   # Bootloader
   boot.loader.grub = {
     enable = true;
