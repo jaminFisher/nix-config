@@ -89,20 +89,14 @@
   console.keyMap = "uk";
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
-    sops
-    nixd
-    nh
-  ];
-
+  environment.systemPackages = with pkgs; [ sops nixd nh ];
   home-manager = {
-    extraSpecialArgs = {
-      inherit inputs outputs;
-    };
+    extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
       jaminfisher = import ../../home-manager/jaminfisher.nix;
     };
+    backupFileExtension = "hm-backup";
   };
   programs.zsh.enable = true;
   users.users = {
@@ -114,13 +108,11 @@
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-      ];
-      packages = with pkgs; [
-        # Add user apps if required.
-      ];
+      extraGroups = [ "networkmanager" "wheel" ];
+      packages = with pkgs;
+        [
+          # Add user apps if required.
+        ];
     };
   };
 
