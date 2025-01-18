@@ -2,9 +2,9 @@
   programs.rbw = {
     enable = true;
     settings = {
-      email = "jaminfisher@gmail";
+      email = "jaminfisher@gmail.com";
       base_url = "https://bagel-server.koi-hexatonic.ts.net:8222";
-      pinentry = pkgs.pinentry-gnome3;
+      pinentry = pkgs.pinentry-tty;
     };
   };
 }
