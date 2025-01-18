@@ -1,19 +1,11 @@
-{ pkgs, ... }:
-{
-  imports = [
-    ./starship.nix
-    ./git.nix
-    ./helix.nix
-    ./zsh.nix
-    ./broot.nix
-  ];
+{ pkgs, ... }: {
+  imports = [ ./starship.nix ./git.nix ./helix.nix ./zsh.nix ./broot.nix ];
   home.packages = with pkgs; [
-
     bottom
     fd
     broot
     gitui
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    nerd-fonts.fira-code
     zoxide
     rbw
     pinentry
