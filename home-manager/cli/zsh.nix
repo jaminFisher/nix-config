@@ -2,11 +2,8 @@
 let
 
   # My shell aliases
-  myAliases = {
-    fd = "fd -Lu";
-  };
-in
-{
+  myAliases = { fd = "fd -Lu"; };
+in {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -19,6 +16,8 @@ in
         "git"
         "zoxide"
         "starship"
+        "zsh-interactive-cd:"
+        "zsh-autosuggestions"
         "rbw"
       ];
     };
