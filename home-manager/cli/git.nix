@@ -4,6 +4,11 @@
     enable = true;
     userName = "Ben Fisher";
     userEmail = "jaminFisher@gmail.com";
+    difftastic = {
+      enable = true;
+      background = "dark";
+      display = "side-by-side-show-both";
+    };
     # extraConfig = {
     #   credential.helper = "cache";
     # };
