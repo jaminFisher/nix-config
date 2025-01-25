@@ -1,11 +1,14 @@
-{ pkgs, inputs, ... }:
-{
-  imports = [
-    ../generic/configuration.nix
-    ./gnome.nix
-    ./hardware-configuration.nix
-  ];
+{ pkgs, inputs, outputs, ... }: {
+  imports =
+    [ ../generic/configuration.nix ./gnome.nix ./hardware-configuration.nix ];
 
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      jaminfisher = import ../../home-manager/system/wsl.nix;
+    };
+  };
   hardware.enableRedistributableFirmware = true;
   # Hostname
   networking.hostName = "x220";
