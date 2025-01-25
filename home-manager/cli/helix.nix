@@ -2,14 +2,38 @@
 {
   programs.helix = {
     enable = true;
-
     settings = {
       theme = "autumn_night_transparent";
-      editor.true-color = true;
-      editor.cursor-shape = {
-        normal = "block";
-        insert = "bar";
-        select = "underline";
+      editor = {
+        true-color = true;
+        auto-completion = true;
+        auto-save = true;
+        end-of-line-diagnostics = "hint";
+        rulers = [ 120 ];
+        cursor-shape = {
+          normal = "block";
+          insert = "bar";
+          select = "underline";
+        };
+        statusline = {
+          left = [
+            "mode"
+            "spinner"
+            "version-control"
+          ];
+          center = [ "file-name" ];
+          right = [
+            "diagnostics"
+            "selections"
+            "position"
+            "file-encoding"
+            "file-line-ending"
+            "file-type"
+          ];
+          mode.normal = "NOR";
+          mode.insert = "INS";
+          mode.select = "SEL";
+        };
       };
     };
     languages.language = [
