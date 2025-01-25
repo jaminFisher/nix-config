@@ -19,6 +19,8 @@ in
         "git"
         "zoxide"
         "starship"
+        "zsh-interactive-cd:"
+        "zsh-autosuggestions"
         "rbw"
       ];
     };

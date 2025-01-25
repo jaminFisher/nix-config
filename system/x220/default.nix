@@ -1,6 +1,10 @@
-{ pkgs, inputs, ... }: {
-  imports =
-    [ ../generic/configuration.nix ./gnome.nix ./hardware-configuration.nix ];
+{ pkgs, inputs, ... }:
+{
+  imports = [
+    ../generic/configuration.nix
+    ./gnome.nix
+    ./hardware-configuration.nix
+  ];
 
   hardware.enableRedistributableFirmware = true;
   # Hostname
