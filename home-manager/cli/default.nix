@@ -1,4 +1,8 @@
 { pkgs, ... }: {
+=======
+{ pkgs, ... }:
+{
+>>>>>>> bagelserver
   imports = [
     ./starship.nix
     ./git.nix

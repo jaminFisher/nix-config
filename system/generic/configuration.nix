@@ -1,7 +1,13 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{ inputs, lib, config, pkgs, outputs, ... }: {
+{
+  inputs,
+  pkgs,
+  outputs,
+  ...
+}:
+{
   # You can import other NixOS modules here
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -81,15 +87,22 @@
   console.keyMap = "uk";
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [ sops nixd nh ];
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      # Import your home-manager configuration
-      jaminfisher = import ../../home-manager/jaminfisher.nix;
-    };
-    backupFileExtension = "hm-backup";
-  };
+  environment.systemPackages = with pkgs; [
+    gnupg
+    sops
+    nixd
+    nh
+  ];
+
+  # home-manager = {
+  #   extraSpecialArgs = {
+  #     inherit inputs outputs;
+  #   };
+  #   users = {
+  #     # Import your home-manager configuration
+  #     jaminfisher = import ../../home-manager/jaminfisher.nix;
+  #   };
+  # };
   programs.zsh.enable = true;
   users.users = {
     jaminfisher = {
@@ -100,14 +113,17 @@
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs;
-        [
-          # Add user apps if required.
-        ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+      packages = with pkgs; [
+        gnupg
+        # Add user apps if required.
+      ];
     };
   };
-
+  security.sudo.enable = true;
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   #services.openssh = {
