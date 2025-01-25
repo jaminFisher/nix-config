@@ -6,7 +6,7 @@
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      jaminfisher = import ../../home-manager/system/wsl.nix;
+      jaminfisher = import ../../home-manager/system/x220.nix;
     };
   };
   hardware.enableRedistributableFirmware = true;
