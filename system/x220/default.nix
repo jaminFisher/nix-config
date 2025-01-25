@@ -14,8 +14,9 @@
   networking.networkmanager.wifi.backend = "iwd";
 
   #networking.wireless.userControlled.enable = true;
-
+  environment.variables.EDITOR = "hx";
   environment.systemPackages = with pkgs; [
+    ytdl-sub
     brave
     firefox
     ghostty
