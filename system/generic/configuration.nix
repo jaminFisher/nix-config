@@ -1,13 +1,7 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{
-  inputs,
-  pkgs,
-  outputs,
-  ...
-}:
-{
+{ inputs, pkgs, outputs, ... }: {
   # You can import other NixOS modules here
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -87,12 +81,7 @@
   console.keyMap = "uk";
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
-    gnupg
-    sops
-    nixd
-    nh
-  ];
+  environment.systemPackages = with pkgs; [ gnupg sops nixd nh ];
 
   # home-manager = {
   #   extraSpecialArgs = {
@@ -113,14 +102,12 @@
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-      ];
-      packages = with pkgs; [
-        gnupg
-        # Add user apps if required.
-      ];
+      extraGroups = [ "networkmanager" "wheel" ];
+      packages = with pkgs;
+        [
+          gnupg
+          # Add user apps if required.
+        ];
     };
   };
   security.sudo.enable = true;
@@ -135,6 +122,7 @@
   # Use keys only. Remove if you want to SSH using password (not recommended)
   #};
 
+  home-manager.backupFileExtension = "backup";
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
 }
