@@ -1,8 +1,6 @@
 { ... }:
 {
   # You can import other home-manager modules here
-  imports = [ ./cli/default.nix ];
-
   nixpkgs = {
     # Configure your nixpkgs instance
     config = {
