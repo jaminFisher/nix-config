@@ -1,7 +1,14 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, outputs, ... }: {
   imports =
-    [ ../generic/configuration.nix ./xfce-i3.nix ./hardware-configuration.nix ];
+    [ ../generic/configuration.nix ./gnome.nix ./hardware-configuration.nix ];
 
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      jaminfisher = import ../../home-manager/system/x220.nix;
+    };
+  };
   hardware.enableRedistributableFirmware = true;
   # Hostname
   networking.hostName = "x220";
@@ -14,7 +21,14 @@
   networking.networkmanager.wifi.backend = "iwd";
 
   #networking.wireless.userControlled.enable = true;
-
+  environment.variables.EDITOR = "hx";
+  environment.systemPackages = with pkgs; [
+    ytdl-sub
+    brave
+    firefox
+    ghostty
+    gnomeExtensions.pop-shell
+  ];
   # Bootloader
   boot.loader.grub = {
     enable = true;

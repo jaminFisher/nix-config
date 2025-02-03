@@ -6,20 +6,17 @@
     ./helix.nix
     ./zsh.nix
     ./broot.nix
-    ./gnupg.nix
+    ./rbw.nix
+    ./zellij.nix
   ];
   home.packages = with pkgs; [
-
     bottom
     fd
     broot
     gitui
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    nerd-fonts.fira-code
     zoxide
-    rbw
-    pinentry-all
-    zellij
-
+    pinentry
     nixd # Nix LSP
     alejandra # Nix formatter
     nixfmt-rfc-style
