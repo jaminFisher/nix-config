@@ -81,7 +81,7 @@
   console.keyMap = "uk";
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [ gnupg sops nixd nh ];
+  environment.systemPackages = with pkgs; [ gnupg sops nixd nh tldr ];
 
   # home-manager = {
   #   extraSpecialArgs = {
