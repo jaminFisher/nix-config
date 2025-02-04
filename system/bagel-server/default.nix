@@ -10,6 +10,7 @@
     ./samba.nix
     ./immich.nix
     ./jellyfin.nix
+    ./mealie.nix
   ];
 
   hardware.enableRedistributableFirmware = true;
