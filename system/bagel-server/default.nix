@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    ../generic/configuration.nix
+    ../generic
     ./hardware-configuration.nix
     ./samba.nix
     ./immich.nix
