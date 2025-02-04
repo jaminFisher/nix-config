@@ -1,0 +1,6 @@
+{ ... }:
+{
+  services.mealie = {
+    enable = true;
+  };
+}
