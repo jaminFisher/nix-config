@@ -1,10 +1,5 @@
-{ ... }:
-{
+{ ... }: {
   # You can import other home-manager modules here
-  imports = [
-     ./sh_basic.nix
-  ];
-
   nixpkgs = {
     # Configure your nixpkgs instance
     config = {
