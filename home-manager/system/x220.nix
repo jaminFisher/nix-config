@@ -1,8 +1,1 @@
-{...}:
-{
-  imports = [
-    ../jaminfisher.nix
-    ../cli
-    ../apps
-  ];
-}
+{ ... }: { imports = [ ../jaminfisher.nix ../cli ../apps/ghostty.nix ]; }
