@@ -28,6 +28,9 @@
   # Vaultwarden
   services.vaultwarden.enable = true;
 
+  #Nextcloud
+  services.nextcloud.enable = true;
+
   home-manager = {
     extraSpecialArgs = {
       inherit inputs outputs;
