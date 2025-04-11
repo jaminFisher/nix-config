@@ -39,6 +39,14 @@
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
+        squirrel87 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          }; # Pass flake inputs to our config
+          # > Our main nixos configuration file <
+          modules = [ ./system/squirrel87 ];
+        };
         x220 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
