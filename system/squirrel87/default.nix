@@ -22,18 +22,16 @@
   networking.hostName = "squirrel87"; # Define your hostname.
 
   networking.networkmanager.enable = true;
-  programs.networkmanager.enable = true;
   services.tailscale.enable = true;
 
   environment.variables.EDITOR = "hx";
   environment.systemPackages = with pkgs; [
-    nmtui
     brave
     ghostty
   ];
 
   # Sound
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
