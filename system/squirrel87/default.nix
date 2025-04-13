@@ -1,14 +1,5 @@
-{
-  pkgs,
-  inputs,
-  outputs,
-  ...
-}:
-{
-  imports = [
-    ../generic
-    ./hardware-configuration.nix
-  ];
+{ pkgs, inputs, outputs, ... }: {
+  imports = [ ../generic ./hardware-configuration.nix ./lxqt.nix ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
@@ -25,10 +16,7 @@
   services.tailscale.enable = true;
 
   environment.variables.EDITOR = "hx";
-  environment.systemPackages = with pkgs; [
-    brave
-    ghostty
-  ];
+  environment.systemPackages = with pkgs; [ brave ghostty ];
 
   # Sound
   hardware.pulseaudio.enable = false;
