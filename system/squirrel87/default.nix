@@ -1,11 +1,11 @@
 { pkgs, inputs, outputs, ... }: {
-  imports = [ ../generic ./hardware-configuration.nix ./lxqt.nix ];
+  imports = [ ../generic ./hardware-configuration.nix ./i3.nix ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      jaminfisher = import ../../home-manager/system/x220.nix;
+      jaminfisher = import ../../home-manager/system/squirrel87.nix;
     };
   };
   hardware.enableRedistributableFirmware = true;
@@ -15,11 +15,14 @@
   networking.networkmanager.enable = true;
   services.tailscale.enable = true;
 
-  environment.variables.EDITOR = "hx";
-  environment.systemPackages = with pkgs; [ brave ghostty ];
+  environment.variables = {
+    EDITOR = "hx";
+    TERMINAL = "ghostty";
+  };
+  environment.systemPackages = with pkgs; [ brave ghostty xorg.xev ];
 
   # Sound
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
