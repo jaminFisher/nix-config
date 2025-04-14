@@ -21,6 +21,8 @@
     ./sops.nix
   ];
 
+  home-manager.backupFileExtension = ".nixbackup";
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
