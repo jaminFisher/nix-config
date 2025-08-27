@@ -84,22 +84,22 @@
                   sites = [
                     {
                       title = "Jellyfin";
-                      url = "localhost:8096";
+                      url = "http://bagel-server.koi-hexatonic.ts.net:8096";
                       icon = "/assets/jellyfin-logo.png";
                     }
                     {
                       title = "Immich";
-                      url = "localhost:2283";
+                      url = "http://bagel-server.koi-hexatonic.ts.net:2283";
                       icon = "/assets/immich-logo.png";
                     }
                     {
                       title = "Vaultwarden";
-                      url = "localhost:8222";
+                      url = "http://bagel-server.koi-hexatonic.ts.net:8222";
                       icon = "/assets/vaultwarden-logo.png";
                     }
                     {
                       title = "Mealie";
-                      url = "localhost:9000";
+                      url = "http://bagel-server.koi-hexatonic.ts.net:9000";
                       icon = "/assets/mealie-logo.png";
                     }
 
