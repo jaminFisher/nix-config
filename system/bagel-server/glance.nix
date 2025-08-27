@@ -37,22 +37,46 @@
                     }
                   ];
                 }
-                {
-                  type = "twitch-channels";
-                  channels = [
-                    "theprimeagen"
-                    "j_blow"
-                    "piratesoftware"
-                    "cohhcarnage"
-                    "christitustech"
-                    "EJ_SA"
-                  ];
-                }
+                # {
+                #   type = "twitch-channels";
+                #   channels = [
+                #     "theprimeagen"
+                #     "j_blow"
+                #     "piratesoftware"
+                #     "cohhcarnage"
+                #     "christitustech"
+                #     "EJ_SA"
+                #   ];
+                # }
               ];
             }
             {
               size = "full";
               widgets = [
+                {
+                  type = "server-stats";
+                  servers = [
+                    {
+                      type = "local";
+                      hide-mountpoints-by-default = false;
+
+                      #   mountpoints = [
+                      #     {
+                      #       path = "/";
+                      #       name = "Root";
+                      #     }
+                      #     {
+                      #       path = "/mnt/data";
+                      #       name = "Data";
+                      #     }
+                      #     {
+                      #       path = "/boot/efi";
+                      #       hide = true;
+                      #     }
+                      #   ];
+                    }
+                  ];
+                }
                 {
                   type = "group";
                   widgets = [
@@ -96,31 +120,31 @@
                   units = "metric";
                   hour-format = "12h";
                 }
-                {
-                  type = "markets";
-                  markets = [
-                    {
-                      symbol = "SPY";
-                      name = "S&P 500";
-                    }
-                    {
-                      symbol = "BTC-USD";
-                      name = "Bitcoin";
-                    }
-                    {
-                      symbol = "NVDA";
-                      name = "NVIDIA";
-                    }
-                    {
-                      symbol = "AAPL";
-                      name = "Apple";
-                    }
-                    {
-                      symbol = "MSFT";
-                      name = "Microsoft";
-                    }
-                  ];
-                }
+                # {
+                #   type = "markets";
+                #   markets = [
+                #     {
+                #       symbol = "SPY";
+                #       name = "S&P 500";
+                #     }
+                #     {
+                #       symbol = "BTC-USD";
+                #       name = "Bitcoin";
+                #     }
+                #     {
+                #       symbol = "NVDA";
+                #       name = "NVIDIA";
+                #     }
+                #     {
+                #       symbol = "AAPL";
+                #       name = "Apple";
+                #     }
+                #     {
+                #       symbol = "MSFT";
+                #       name = "Microsoft";
+                #     }
+                #   ];
+                # }
                 {
                   type = "releases";
                   cache = "1d";
