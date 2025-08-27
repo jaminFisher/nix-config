@@ -85,22 +85,22 @@
                     {
                       title = "Jellyfin";
                       url = "http://bagel-server.koi-hexatonic.ts.net:8096";
-                      icon = "/assets/jellyfin-logo.png";
+                      icon = "sh:jellyfin";
                     }
                     {
                       title = "Immich";
                       url = "http://bagel-server.koi-hexatonic.ts.net:2283";
-                      icon = "/assets/immich-logo.png";
+                      icon = "sh:immich";
                     }
                     {
                       title = "Vaultwarden";
                       url = "https://bagel-server.koi-hexatonic.ts.net:8222";
-                      icon = "/assets/vaultwarden-logo.png";
+                      icon = "sh:vaultwarden";
                     }
                     {
                       title = "Mealie";
                       url = "http://bagel-server.koi-hexatonic.ts.net:9000";
-                      icon = "/assets/mealie-logo.png";
+                      icon = "sh:mealie";
                     }
 
                     # {
