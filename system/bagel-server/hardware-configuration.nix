@@ -49,6 +49,11 @@
     options = [ "umask=0000" ];
   };
 
+  fileSystems."/mnt/Seagate" = {
+    device = "/dev/disk/by-uuid/15012281-2359-4ed2-8630-f2026aef3b7e";
+    fsType = "ext4";
+  };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
