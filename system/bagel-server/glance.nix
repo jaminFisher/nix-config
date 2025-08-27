@@ -78,22 +78,60 @@
                   ];
                 }
                 {
+                  type = "monitor";
+                  cache = "1m";
+                  title = "Services";
+                  sites = [
+                    {
+                      title = "Jellyfin";
+                      url = "localhost:8096";
+                      icon = "/assets/jellyfin-logo.png";
+                    }
+                    {
+                      title = "Immich";
+                      url = "localhost:2283";
+                      icon = "/assets/immich-logo.png";
+                    }
+                    {
+                      title = "Vaultwarden";
+                      url = "localhost:8222";
+                      icon = "/assets/vaultwarden-logo.png";
+                    }
+                    {
+                      title = "Mealie";
+                      url = "localhost:9000";
+                      icon = "/assets/mealie-logo.png";
+                    }
+
+                    # {
+                    #   title = "Gitea";
+                    #   url = "https://gitea.yourdomain.com";
+                    #   icon = "/assets/gitea-logo.png";
+                    # }
+                    # {
+                    #   title = "AdGuard Home";
+                    #   url = "https://adguard.yourdomain.com";
+                    #   icon = "/assets/adguard-logo.png";
+                    # }
+                  ];
+                }
+                {
                   type = "group";
                   widgets = [
                     { type = "hacker-news"; }
                     { type = "lobsters"; }
                   ];
                 }
-                {
-                  type = "videos";
-                  channels = [
-                    "UCXuqSBlHAE6Xw-yeJA0Tunw" # Linus Tech Tips
-                    "UCR-DXc1voovS8nhAvccRZhg" # Jeff Geerling
-                    "UCsBjURrPoezykLs9EqgamOA" # Fireship
-                    "UCBJycsmduvYEL83R_U4JriQ" # Marques Brownlee
-                    "UCHnyfMqiRRG1u-2MsSQLbXA" # Veritasium
-                  ];
-                }
+                # {
+                #   type = "videos";
+                #   channels = [
+                #     "UCXuqSBlHAE6Xw-yeJA0Tunw" # Linus Tech Tips
+                #     "UCR-DXc1voovS8nhAvccRZhg" # Jeff Geerling
+                #     "UCsBjURrPoezykLs9EqgamOA" # Fireship
+                #     "UCBJycsmduvYEL83R_U4JriQ" # Marques Brownlee
+                #     "UCHnyfMqiRRG1u-2MsSQLbXA" # Veritasium
+                #   ];
+                # }
                 {
                   type = "group";
                   widgets = [
@@ -120,31 +158,6 @@
                   units = "metric";
                   hour-format = "12h";
                 }
-                # {
-                #   type = "markets";
-                #   markets = [
-                #     {
-                #       symbol = "SPY";
-                #       name = "S&P 500";
-                #     }
-                #     {
-                #       symbol = "BTC-USD";
-                #       name = "Bitcoin";
-                #     }
-                #     {
-                #       symbol = "NVDA";
-                #       name = "NVIDIA";
-                #     }
-                #     {
-                #       symbol = "AAPL";
-                #       name = "Apple";
-                #     }
-                #     {
-                #       symbol = "MSFT";
-                #       name = "Microsoft";
-                #     }
-                #   ];
-                # }
                 {
                   type = "releases";
                   cache = "1d";
@@ -153,6 +166,7 @@
                     "go-gitea/gitea"
                     "immich-app/immich"
                     "syncthing/syncthing"
+                    "NixOS/nixpkgs"
                   ];
                 }
               ];
