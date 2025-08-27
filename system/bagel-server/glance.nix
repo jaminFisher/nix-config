@@ -94,7 +94,7 @@
                     }
                     {
                       title = "Vaultwarden";
-                      url = "http://bagel-server.koi-hexatonic.ts.net:8222";
+                      url = "https://bagel-server.koi-hexatonic.ts.net:8222";
                       icon = "/assets/vaultwarden-logo.png";
                     }
                     {
