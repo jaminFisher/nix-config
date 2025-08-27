@@ -1,0 +1,6 @@
+{ ... }:
+{
+  services.glance = {
+    enable = true;
+  };
+}

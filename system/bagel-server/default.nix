@@ -11,6 +11,7 @@
     ./immich.nix
     ./jellyfin.nix
     ./mealie.nix
+    ./glance.nix
   ];
 
   hardware.enableRedistributableFirmware = true;
