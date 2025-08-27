@@ -1,11 +1,7 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   # Jellyfin
-  environment.systemPackages = [
-    pkgs.jellyfin
-    pkgs.jellyfin-web
-    pkgs.jellyfin-ffmpeg
-  ];
+  environment.systemPackages =
+    [ pkgs.jellyfin pkgs.jellyfin-web pkgs.jellyfin-ffmpeg ];
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
@@ -18,7 +14,6 @@
       libvdpau-va-gl
       intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
       vpl-gpu-rt # QSV on 11th gen or newer
-      intel-media-sdk # QSV up to 11th gen
     ];
   };
   services.jellyfin = {
