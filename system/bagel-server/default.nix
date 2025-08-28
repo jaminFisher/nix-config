@@ -12,6 +12,7 @@
     ./jellyfin.nix
     ./mealie.nix
     ./glance.nix
+    ./blocky.nix
   ];
 
   hardware.enableRedistributableFirmware = true;
