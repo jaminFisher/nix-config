@@ -8,6 +8,7 @@
     ./broot.nix
     ./rbw.nix
     ./zellij.nix
+    ./yazi.nix
   ];
   home.packages = with pkgs; [
     bottom
