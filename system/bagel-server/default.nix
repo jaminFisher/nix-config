@@ -13,6 +13,7 @@
     ./mealie.nix
     ./glance.nix
     ./blocky.nix
+    ./pinchflat.nix
   ];
 
   hardware.enableRedistributableFirmware = true;
