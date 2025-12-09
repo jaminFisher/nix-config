@@ -9,6 +9,7 @@
     ./glance.nix
     ./blocky.nix
     ./pinchflat.nix
+    ./caddy.nix
     ./audiobookshelf.nix
   ];
 
@@ -21,6 +22,7 @@
   # Tailscale
   services.tailscale = {
     enable = true;
+    tailnetname = "koi-hexatonic";
     useRoutingFeatures = "server";
   };
 
