@@ -35,13 +35,11 @@
     };
   };
 
-  users = {
-    extraGroups = { media = { gid = 1100; }; };
-    users = {
-      jellyfin.extraGroups = [ "media" ];
-      pinchflat.extraGroups = [ "media" ];
-    };
-  };
+  users = { groups = { media.gid = 1100; }; };
+  users.users.jaminfisher.extraGroups = [ "media" ];
+
+  systemd.tmpfiles.rules = [ "d /mnt/Seagate 2775 root media -" ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

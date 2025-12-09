@@ -14,6 +14,7 @@
     username = "jaminfisher";
     homeDirectory = "/home/jaminfisher";
   };
+
   # Enable home-manager and git
   programs.home-manager.enable = true;
 
