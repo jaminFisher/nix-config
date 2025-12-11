@@ -9,10 +9,11 @@ in
     selfhosted = true;
   };
 
-  # Fix permissions on the media directory
-  systemd.services.pinchflat.preStart = ''
-    mkdir -p ${mediaDir}
-    chown pinchflat:pinchflat ${mediaDir}
-    chmod 755 ${mediaDir}
-  '';
+  # Add pinchflat user to media group
+  users.users.pinchflat.extraGroups = [ "media" ];
+
+  # Ensure directory exists with correct ownership and permissions
+  systemd.tmpfiles.rules = [
+    "d ${mediaDir} 2775 root media - -"
+  ];
 }
