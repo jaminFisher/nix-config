@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   imports = [
     ./starship.nix
     ./git.nix
@@ -17,7 +16,7 @@
     gitui
     nerd-fonts.fira-code
     zoxide
-    pinentry
+    pinentry-all
     nixd # Nix LSP
     alejandra # Nix formatter
     nixfmt-rfc-style
