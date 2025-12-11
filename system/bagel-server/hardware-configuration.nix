@@ -37,7 +37,7 @@
   fileSystems."/mnt/Seagate" = {
     device = "/dev/disk/by-uuid/15012281-2359-4ed2-8630-f2026aef3b7e";
     fsType = "ext4";
-    options = [ "rw" "uid=1000" "gid=1100" ];
+    options = [ "x-systemd.tmpfiles-setup" ];
   };
 
   swapDevices = [ ];

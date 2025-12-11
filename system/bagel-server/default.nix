@@ -22,7 +22,6 @@
   # Tailscale
   services.tailscale = {
     enable = true;
-    tailnetname = "koi-hexatonic";
     useRoutingFeatures = "server";
   };
 
