@@ -7,5 +7,6 @@
     sops
     nixd
     nh
+    glances
   ];
 }
