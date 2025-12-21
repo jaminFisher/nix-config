@@ -9,32 +9,32 @@
           {
             name = "Jellyfin";
             url = "http://bagel-server.koi-hexatonic.ts.net:8096";
-            icon = "jellyfin";
+            icon = "jellyfin.svg";
           }
           {
             name = "Immich";
             url = "http://bagel-server.koi-hexatonic.ts.net:2283";
-            icon = "immich";
+            icon = "immich.svg";
           }
           {
             name = "Mealie";
             url = "http://bagel-server.koi-hexatonic.ts.net:9000";
-            icon = "mealie";
+            icon = "si-mealie";
           }
           {
             name = "Vaultwarden";
             url = "https://bagel-server.koi-hexatonic.ts.net:8222";
-            icon = "vaultwarden";
+            icon = "si-vaultwarden";
           }
           {
             name = "Audiobookshelf";
             url = "http://bagel-server.koi-hexatonic.ts.net:8000";
-            icon = "audiobookshelf";
+            icon = "audiobookshelf.svg";
           }
           {
             name = "Pinchflat";
             url = "http://bagel-server.koi-hexatonic.ts.net:3000";
-            icon = "pinchflat";
+            icon = "si-youtube";
           }
         ];
       }
