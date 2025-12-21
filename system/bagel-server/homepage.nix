@@ -2,6 +2,7 @@
 {
   services.homepage-dashboard = {
     enable = true;
+    allowedHosts = "localhost:8085,bagel-server.koi-hexatonic.ts.net:8082,127.0.0.1:8082,bagel-server.koi-hexatonic.ts.net";
     services = [
       {
         "Services" = [
