@@ -1,4 +1,5 @@
-{ inputs, outputs, ... }: {
+{ inputs, outputs, ... }:
+{
   imports = [
     ../generic
     ./hardware-configuration.nix
@@ -11,6 +12,7 @@
     ./pinchflat.nix
     ./caddy.nix
     ./audiobookshelf.nix
+    ./homepage.nix
   ];
 
   hardware.enableRedistributableFirmware = true;
@@ -36,7 +38,11 @@
     };
   };
 
-  users = { groups = { media.gid = 1100; }; };
+  users = {
+    groups = {
+      media.gid = 1100;
+    };
+  };
   users.users.jaminfisher.extraGroups = [ "media" ];
 
   systemd.tmpfiles.rules = [ "d /mnt/Seagate 2775 root media -" ];
