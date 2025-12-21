@@ -8,6 +8,6 @@
     nixd
     nh
     glances
-    systemd-systemd-manager-tui
+    systemd-manager-tui
   ];
 }

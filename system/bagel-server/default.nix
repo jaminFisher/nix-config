@@ -30,6 +30,14 @@
   # Vaultwarden
   services.vaultwarden.enable = true;
 
+  services.filebrowser = {
+    enable = true;
+    settings = {
+      port = 8787;
+      root = "/";
+    };
+  };
+
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
