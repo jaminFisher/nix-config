@@ -13,6 +13,7 @@
     ./caddy.nix
     ./audiobookshelf.nix
     ./homepage.nix
+    ./calibre.nix
   ];
 
   hardware.enableRedistributableFirmware = true;
