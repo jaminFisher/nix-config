@@ -6,6 +6,7 @@ let
     fd = "fd -Lu";
     switch = "nh os switch ~/nix-config";
     st = "systemctl-tui";
+    sudost = "sudo systemctl-tui";
   };
 in
 {
