@@ -1,6 +1,8 @@
 { ... }:
-let tailnet = "koi-hexatonic.ts.net";
-in {
+let
+  tailnet = "koi-hexatonic.ts.net";
+in
+{
   services.caddy = {
     enable = true;
     # Configure each service with a unique hostname and port
@@ -14,8 +16,11 @@ in {
     virtualHosts."photos.${tailnet}".extraConfig = ''
       reverse_proxy 127.0.0.1:2283
     '';
+    virtualHosts."vaultwarden.${tailnet}".extraConfig = ''
+      reverse_proxy 127.0.0.1:8222
+      tls internal
+    '';
     # Add more services as needed, each with a unique hostname and port
   };
   services.tailscale.permitCertUid = "caddy";
 }
-

@@ -28,7 +28,13 @@
   };
 
   # Vaultwarden
-  services.vaultwarden.enable = true;
+  services.vaultwarden = {
+    enable = true;
+    config = {
+      ROCKET_PORT = 8222;
+      ROCKET_ADDRESS = "127.0.0.1";
+    };
+  };
 
   services.filebrowser = {
     enable = true;
