@@ -5,8 +5,10 @@ let
   myAliases = {
     fd = "fd -Lu";
     switch = "nh os switch ~/nix-config";
+    st = "systemctl-tui";
   };
-in {
+in
+{
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -15,7 +17,13 @@ in {
     shellAliases = myAliases;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "zoxide" "starship" "zsh-interactive-cd" "rbw" ];
+      plugins = [
+        "git"
+        "zoxide"
+        "starship"
+        "zsh-interactive-cd"
+        "rbw"
+      ];
     };
   };
 }

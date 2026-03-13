@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./starship.nix
     ./git.nix
@@ -24,5 +25,6 @@
     nix-diff # Differ, more detailed
     nix-output-monitor
     nh # Nice wrapper for NixOS and HM
+    systemctl-tui
   ];
 }
