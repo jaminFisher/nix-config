@@ -10,7 +10,6 @@
     ./glance.nix
     ./blocky.nix
     ./pinchflat.nix
-    ./caddy.nix
     ./audiobookshelf.nix
     ./homepage.nix
     ./calibre.nix
