@@ -25,44 +25,62 @@
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, systems, nixos-wsl, ... }@inputs: {
-    formatter.x86_64-linux =
-      inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
-    nixosConfigurations = {
-      squirrel87 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        # > Our main nixos configuration file <
-        modules = [ ./system/squirrel87 ];
-      };
-      x220 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        # > Our main nixos configuration file <
-        modules = [ ./system/x220 ];
-      };
-      bagel-server = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        # > Our main nixos configuration file <
-        modules = [ ./system/bagel-server ];
-      };
-      nix-wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      systems,
+      nixos-wsl,
+      ...
+    }@inputs:
+    {
+      formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      # NixOS configuration entrypoint
+      # Available through 'nixos-rebuild --flake .#your-hostname'
+      nixosConfigurations = {
+        squirrel87 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+          # > Our main nixos configuration file <
+          modules = [
+            ./system/squirrel87
+            inputs.home-manager.nixosModules.home-manager
+          ];
+        };
+        x220 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+          # > Our main nixos configuration file <
+          modules = [
+            ./system/x220
+            inputs.home-manager.nixosModules.home-manager
+          ];
+        };
+        bagel-server = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+          # > Our main nixos configuration file <
+          modules = [
+            ./system/bagel-server
+            inputs.home-manager.nixosModules.home-manager
+          ];
+        };
+        nix-wsl = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
 
-        modules = [
-          nixos-wsl.nixosModules.default
-          {
-            wsl.enable = true;
-            wsl.defaultUser = "jaminfisher";
-          }
-          ./system/wsl.nix
-        ];
+          modules = [
+            nixos-wsl.nixosModules.default
+            {
+              wsl.enable = true;
+              wsl.defaultUser = "jaminfisher";
+            }
+            ./system/wsl.nix
+            inputs.home-manager.nixosModules.home-manager
+          ];
 
+        };
       };
     };
-  };
 }
